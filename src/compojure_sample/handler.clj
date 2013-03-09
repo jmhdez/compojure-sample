@@ -5,6 +5,7 @@
 
 (defroutes app-routes
   (GET "/" [] "Hello World")
+  (route/files "/public" {:root "public"})
   (route/not-found "Not Found"))
 
 (def app
