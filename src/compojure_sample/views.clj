@@ -5,6 +5,8 @@
 (defn index []
   (html5 
     [:head
+	  (include-css "/public/css/style.css")
+	  (include-js "/public/js/jquery-1.9.1.min.css")
 	  [:title "Mega Facts"]]
 	[:body
 	  [:div#container
