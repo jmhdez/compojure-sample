@@ -23,3 +23,6 @@
 	  (fn [h]
 		(let [facts (get h hero)]
 		  (assoc h hero (conj facts fact))))))
+		  
+(defn get-hero-names []
+  (sort (keys @heroes)))

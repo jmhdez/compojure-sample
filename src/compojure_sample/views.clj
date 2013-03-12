@@ -2,7 +2,7 @@
   (:use hiccup.page)
   (:use hiccup.element))
 			
-(defn index []
+(defn index [hero-names]
   (html5 
     [:head
 	  (include-css "/public/css/style.css")
@@ -16,8 +16,8 @@
 		  [:div#left-column.column
 		    [:h2 "Elige tu héroe"]
 			[:ul#heroes
-			  [:li.hero-name
-			    (link-to "#" "Chuck Norris")]]]
+			  (for [name hero-names]
+			    [:li.hero-name (link-to "#" name)])]]
 		  [:div#right-column.column
 		    [:h2 "Facts"]
 			[:ul#facts]
