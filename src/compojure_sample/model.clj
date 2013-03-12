@@ -16,6 +16,7 @@
      "Pérez-Reverte no necesita investigar para escribir novela histórica, el pasado cambia conforme teclea en la máquina."]}))
 	 
 (defn get-facts [hero] 
+    (println "en get-facts con " hero)
 	(get @heroes hero))
 
 (defn add-fact [hero fact]
