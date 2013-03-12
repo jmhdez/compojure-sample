@@ -7,7 +7,8 @@
   
     [:head
 	  (include-css "/public/css/style.css")
-	  (include-js "/public/js/jquery-1.9.1.min.css")
+	  (include-js "/public/js/jquery-1.9.1.min.js")
+	  (include-js "/public/js/view.index.js")
 	  [:title "Mega Facts"]]
 	  
 	[:body
