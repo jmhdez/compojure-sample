@@ -11,19 +11,20 @@
   (GET "/" [] 
     (view/index (model/get-hero-names)))
   
-  (wrap-json-response 
+  
 	(GET "/hero/:name" [name] 
-      (response (model/get-facts name))))
+      (response (model/get-facts name)))
 	  
-  (wrap-json-body
-    (wrap-json-response
+
       (POST "/hero/:name" {{fact "fact"} :body, 
 	                       {name :name} :params} 
 	    (model/add-fact name fact)
-	    (response {:status "OK"}))))
+	    (response {:status "OK"}))
 
   (route/files "/public" {:root "public"})
   (route/not-found "Not Found"))
 
 (def app
-  (handler/site app-routes))
+  (handler/site (-> app-routes 
+                    wrap-json-response 
+					wrap-json-body )))
