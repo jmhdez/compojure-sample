@@ -10,16 +10,14 @@
 (defroutes app-routes
   (GET "/" [] 
     (view/index (model/get-hero-names)))
-  
-  
-	(GET "/hero/:name" [name] 
-      (response (model/get-facts name)))
-	  
+ 
+  (GET "/hero/:name" [name] 
+    (response (model/get-facts name)))
 
-      (POST "/hero/:name" {{fact "fact"} :body, 
-	                       {name :name} :params} 
-	    (model/add-fact name fact)
-	    (response {:status "OK"}))
+  (POST "/hero/:name" {{fact "fact"} :body, 
+                       {name :name} :params} 
+    (model/add-fact name fact)
+    (response {:status "OK"}))
 
   (route/files "/public" {:root "public"})
   (route/not-found "Not Found"))
