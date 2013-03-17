@@ -18,7 +18,7 @@
 (defn get-facts [hero] 
 	(get @heroes hero))
 
-(defn add-fact [hero fact]
+(defn add-fact! [hero fact]
 	(swap! heroes 
 	  (fn [h]
 		(let [facts (get h hero)]

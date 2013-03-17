@@ -16,7 +16,7 @@
 
   (POST "/hero/:name" {{fact "fact"} :body, 
                        {name :name} :params} 
-    (model/add-fact name fact)
+    (model/add-fact! name fact)
     (response {:status "OK"}))
 
   (route/files "/public" {:root "public"})
