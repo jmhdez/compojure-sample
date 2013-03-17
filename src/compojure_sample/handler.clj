@@ -9,13 +9,13 @@
 
 (defroutes app-routes
   (GET "/" [] 
-    (view/index (model/get-hero-names)))
+    (view/index (model/get-heroes)))
  
-  (GET "/hero/:name" [name] 
+  (GET "/hero/:name/facts" [name] 
     (response (model/get-facts name)))
 
-  (POST "/hero/:name" {{fact "fact"} :body, 
-                       {name :name} :params} 
+  (POST "/hero/:name/facts" {{fact "fact"} :body, 
+                             {name :name} :params} 
     (model/add-fact! name fact)
     (response {:status "OK"}))
 

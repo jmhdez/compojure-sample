@@ -9,7 +9,7 @@ $(function() {
   
     $('#facts li').remove();
     
-    $.getJSON('/hero/' + name, function(data) {
+    $.getJSON('/hero/' + name + '/facts', function(data) {
       for (var i = 0; i < data.length; i++) {
         $('<li>').appendTo('#facts').text(data[i]);
       }
@@ -27,7 +27,7 @@ $(function() {
   
     $.ajax({
       type: "POST",
-      url: "/hero/" + name,
+      url: "/hero/" + name + '/facts',
       data: JSON.stringify({fact: fact}),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
