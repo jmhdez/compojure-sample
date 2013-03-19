@@ -4,8 +4,8 @@
   (:use ring.util.response)
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
-			[compojure-sample.model :as model]
-			[compojure-sample.views :as view]))	
+            [compojure-sample.model :as model]
+            [compojure-sample.views :as view]))	
 
 (defroutes app-routes
   (GET "/" [] 
@@ -25,4 +25,4 @@
 (def app
   (handler/site (-> app-routes 
                     wrap-json-response 
-					wrap-json-body )))
+                    wrap-json-body )))
